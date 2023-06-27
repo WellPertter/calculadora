@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        input[type='button']{
+            width: 50px;
+            height: 50px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <input type="text" name="" id="">
+    <input type="text" name="" id="">
+    <table>
+        <tr>
+            <th><input type="button" value="+" onclick="digito()"></th>
+            <th><input type="button" value="-" onclick="digito()"></th>
+            <th><input type="button" value="*" onclick="digito()"></th>
+            <th><input type="button" value="/" onclick="digito()"></th>
+        </tr>
+        <tr>
+            <th><input type="button" value="7" onclick="digito()"></th>
+            <th><input type="button" value="8" onclick="digito()"></th>
+            <th><input type="button" value="7" onclick="digito()"></th>
+            <th rowspan="4"><input type="button" value="=" style="height: 206px;" onclick="digito()"></th>
+        </tr>
+        <tr>
+            <th><input type="button" value="4" onclick="digito()"></th>
+            <th><input type="button" value="5" onclick="digito()"></th>
+            <th><input type="button" value="6" onclick="digito()"></th>
+        </tr>
+        <tr>
+            <th><input type="button" value="1" onclick="digito()"></th>
+            <th><input type="button" value="2" onclick="digito()"></th>
+            <th><input type="button" value="3" onclick="digito()"></th>
+        </tr>
+        <tr>
+            <th><input type="button" value="0" onclick="digito()"></th>
+            <th><input type="button" value="." onclick="digito()"></th>
+            <th><input type="button" value="C" onclick="digito()"></th>
+        </tr>
+    </table>
+</body>
+</html>
