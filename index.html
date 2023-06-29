@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,45 +9,80 @@
             margin: 0;
             padding: 0;
         }
+
         input[type='button']{
             width: 50px;
             height: 50px;
         }
 
+        input[type='text']{
+            display: block;
+            width: 204px;
+            height: 25px;
+        }
 
     </style>
 </head>
 <body>
-    <input type="text" name="" id="">
-    <input type="text" name="" id="">
+    <input type="text" name="" id="sub-main" readonly>
+    <input type="text" name="" id="main" readonly>
     <table>
         <tr>
-            <th><input type="button" value="+" onclick="digito()"></th>
-            <th><input type="button" value="-" onclick="digito()"></th>
-            <th><input type="button" value="*" onclick="digito()"></th>
-            <th><input type="button" value="/" onclick="digito()"></th>
+            <th><input type="button" value="+" onclick="operacao('+')"></th>
+            <th><input type="button" value="-" onclick="operacao('-')"></th>
+            <th><input type="button" value="*" onclick="operacao('*')"></th>
+            <th><input type="button" value="/" onclick="operacao('/')"></th>
         </tr>
         <tr>
-            <th><input type="button" value="7" onclick="digito()"></th>
-            <th><input type="button" value="8" onclick="digito()"></th>
-            <th><input type="button" value="7" onclick="digito()"></th>
+            <th><input type="button" value="7" onclick="digito(7)"></th>
+            <th><input type="button" value="8" onclick="digito(8)"></th>
+            <th><input type="button" value="9" onclick="digito(9)"></th>
             <th rowspan="4"><input type="button" value="=" style="height: 206px;" onclick="digito()"></th>
         </tr>
         <tr>
-            <th><input type="button" value="4" onclick="digito()"></th>
-            <th><input type="button" value="5" onclick="digito()"></th>
-            <th><input type="button" value="6" onclick="digito()"></th>
+            <th><input type="button" value="4" onclick="digito(4)"></th>
+            <th><input type="button" value="5" onclick="digito(5)"></th>
+            <th><input type="button" value="6" onclick="digito(6)"></th>
         </tr>
         <tr>
-            <th><input type="button" value="1" onclick="digito()"></th>
-            <th><input type="button" value="2" onclick="digito()"></th>
-            <th><input type="button" value="3" onclick="digito()"></th>
+            <th><input type="button" value="1" onclick="digito(1)"></th>
+            <th><input type="button" value="2" onclick="digito(2)"></th>
+            <th><input type="button" value="3" onclick="digito(3)"></th>
         </tr>
         <tr>
-            <th><input type="button" value="0" onclick="digito()"></th>
-            <th><input type="button" value="." onclick="digito()"></th>
-            <th><input type="button" value="C" onclick="digito()"></th>
+            <th><input type="button" value="0" onclick="digito(0)"></th>
+            <th><input type="button" value="." onclick="ponto()"></th>
+            <th><input type="button" value="C" onclick="limpar()"></th>
         </tr>
     </table>
+    <script>
+        let vMain = document.getElementById('main');
+        let vSubMain = document.getElementById('sub-main'); 
+        let vOperacoes = '-+*/';
+
+        function digito(valor){
+            if (vMain.value.length < 12){
+                vMain.value += valor;
+            }
+        }
+
+        function ponto(){
+            if (vMain.value.indexOf('.') === -1 && vMain.value.length > 0){
+                vMain.value += '.';
+            }
+        }
+
+        function operacao(ope){
+            if (vSubMain.value.length == 0 && vMain.value.length > 0){
+                vSubMain.value = ope + vMain.value;
+                vMain.value = '';
+            } 
+        }
+
+        function limpar(){
+            vSubMain.value = '';
+            vMain.value = '';
+        }
+    </script>
 </body>
 </html>
