@@ -76,7 +76,9 @@
             if (vSubMain.value.length == 0 && vMain.value.length > 0){
                 vSubMain.value = ope + vMain.value;
                 vMain.value = '';
-            } 
+            } else if (vSubMain.value.length > 0 && vMain.value.length == 0){
+                vSubMain.value = ope + vSubMain.value.slice(1);
+            }
         }
 
         function limpar(){
