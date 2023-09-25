@@ -37,7 +37,7 @@
             <th><input type="button" value="7" onclick="digito(7)"></th>
             <th><input type="button" value="8" onclick="digito(8)"></th>
             <th><input type="button" value="9" onclick="digito(9)"></th>
-            <th rowspan="4"><input type="button" value="=" style="height: 206px;" onclick="digito()"></th>
+            <th rowspan="4"><input type="button" value="=" style="height: 206px;" onclick="resultado()"></th>
         </tr>
         <tr>
             <th><input type="button" value="4" onclick="digito(4)"></th>
@@ -73,11 +73,29 @@
         }
 
         function operacao(ope){
-            if (vSubMain.value.length == 0 && vMain.value.length > 0){
-                vSubMain.value = ope + vMain.value;
+            if (vSubMain.value == '' && vMain.value != ''){
+                vSubMain.value = ope +' '+ vMain.value;
                 vMain.value = '';
-            } else if (vSubMain.value.length > 0 && vMain.value.length == 0){
-                vSubMain.value = ope + vSubMain.value.slice(1);
+            } else if (vSubMain.value != '' && vMain.value == ''){
+                vSubMain.value = ope +' '+ vSubMain.value.substring(1, vSubMain.value.length - 1);
+            }
+        }
+
+        function resultado(){
+            if (vSubMain.value != '' && vMain.value != ''){
+               if (vSubMain.value[0] == '+' && vSubMain.value[1] == ' '){
+                vMain.value = parseFloat(vMain.value) + parseFloat(vSubMain.value.slice(1));
+                vSubMain.value = '';
+               } else if (vSubMain.value[0] == '-'){
+                vMain.value = parseFloat(vMain.value) - parseFloat(vSubMain.value.slice(1));
+                vSubMain.value = '';
+               } else if (vSubMain.value[0] == '/'){
+                vMain.value = parseFloat(vMain.value) / parseFloat(vSubMain.value.slice(1));
+                vSubMain.value = '';
+               } else if (vSubMain.value[0] == '*'){
+                vMain.value = parseFloat(vMain.value) * parseFloat(vSubMain.value.slice(1));
+                vSubMain.value = '';
+               }
             }
         }
 
